@@ -1,14 +1,12 @@
 void setup() {
   size(1080, 1350);
-  fill(0);
-  rect(0, 0, 1080, 1080);
+
+  noStroke();
 }
 
 void draw() {
   background(255);
 
-  fill(0);
-  rect(0, 0, 1080, 1080);
 
 
   TercerAnilloDibujo();
@@ -57,9 +55,21 @@ void TercerAnilloDibujo() {
 }
 
 void CirculoDelCentro() {
+
+  fill(135, 159, 163);
+  ellipse(width/2, 540, 700, 700);
+  fill(255);
+  ellipse(width/2, 540, 650, 650); 
+
   for (int i=0; i<16; i++) {
     pushMatrix();
     translate(width/2, 540);
     rotate(radians(i*22.5));
+
+    rectMode(CENTER);
+    fill(191, 156, 0);
+    rect(0, 320, 80, 25);
+
     popMatrix();
   }
+}
