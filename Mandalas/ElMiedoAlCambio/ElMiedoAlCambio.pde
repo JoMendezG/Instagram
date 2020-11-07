@@ -7,10 +7,29 @@ void setup() {
 void draw() {
   background(255);
 
+  for (int i = 0; i < 16; i++) {
+    pushMatrix();
+    translate(width/2, 540);
+    rotate(radians(22.5*i));
+    //Entrego espacio o separación a las 16 repeticiones
+    translate(0, 375);
+    TriangulosPrincipales_terceranillo(0, 0, 0, 0, 0, 0);
+    popMatrix();
+  }  
+  //TercerAnilloDibujo();
+  //CirculoDelCentro();
+}
 
 
-  TercerAnilloDibujo();
-  CirculoDelCentro();
+void TriangulosPrincipales_terceranillo(float izqX, float izqY, float derX, float derY, float supX, float supY) {
+  pushMatrix();
+  //translate(width/2, height/2);
+
+  fill(0, 150, 0);
+  triangle(izqX-75, izqY, supX, supY+112.5, derX+75, derY);
+  fill(255, 0, 0);
+  triangle(izqX-37.5, izqY-37.5, supX, supY+75, derX+37.5, derY-37.5);
+  popMatrix();
 }
 
 void TercerAnilloDibujo() {
@@ -73,3 +92,7 @@ void CirculoDelCentro() {
     popMatrix();
   }
 }
+
+/*
+37.5 --> 25 + (25/2)
+*/
