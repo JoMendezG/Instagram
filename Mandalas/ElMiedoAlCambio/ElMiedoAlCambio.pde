@@ -7,30 +7,44 @@ void setup() {
 void draw() {
   background(255);
 
+  tercerAnillo();
+}
+
+
+//////////////////////////////////////    TERCER ANILLO   //////////////////////////////////////////////////
+
+void tercerAnillo() {
+  // Foor loop que replica todo 16 veces  
   for (int i = 0; i < 16; i++) {
+    // PushMatrix que almacena todo el tercerAnillo
     pushMatrix();
+    // Tranlado mi figura al centro
     translate(width/2, 540);
+    // Todo rota 22.5° para dar 360 (16*22.5=360)
     rotate(radians(22.5*i));
 
+    // PushMatrix que almacena los triple triangulos
     pushMatrix();
+    // Rotan 11 grados para estar desfasados con los 2 triangulos grandes
     rotate(radians(11));    
-    pushMatrix();
+    // pushMatrix();
     //Entrego espacio o separación a las 16 repeticiones
     translate(0, 470);
     TripeTriangulo_tercerAnillo(0, 0, 0, 0, 0, 0);
-    popMatrix();
+    //popMatrix();
     popMatrix();
 
+    // PushMatrix que almacena el triangulo verde y rojo
     pushMatrix();
     //Entrego espacio o separación a las 16 repeticiones
     translate(0, 375);
     TriangulosPrincipales_terceranillo(0, 0, 0, 0, 0, 0);
     popMatrix();
 
+    // Cierre pushMatrix general
     popMatrix();
   }
 }
-
 
 void TriangulosPrincipales_terceranillo(float izqX, float izqY, float derX, float derY, float supX, float supY) {
   pushMatrix();
