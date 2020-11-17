@@ -13,37 +13,116 @@ void setup() {
 
 void draw() {
   background(255);
-  scale(0.5);
+  //scale(0.5);
 
   tercerAnillo();
   segundoAnillo();
 
-  
+  centroTriangular(0, 0, 0, 0, 0, 0);
+
+  textAlign(CENTER);
+  textSize(25);
+  fill(azul1);
+  text("Llega un momento en el cual debemos preguntarnos si lo que hay", width/2, 1100);
+  text("en nuestras Vida es lo que queremos o lo que nos da miedo cambiar", width/2, 1140);
 }
 
 //////////////////////////////////////    PRIMER ANILLO   //////////////////////////////////////////////////
+
+void centroTriangular(float izqX, float izqY, float supX, float supY, float derX, float derY) {
+  for (int i = 0; i < 8; i++) {
+
+    pushMatrix();
+    translate(width/2, 540);
+    rotate(radians(45*i));
+
+    // triangulo grande
+    pushMatrix();
+    rotate(radians(22));
+    fill(azul3);
+    triangle(izqX+50, izqY, supX, supY+100, derX-50, derY);
+    popMatrix();
+    popMatrix();
+  }
+
+  for (int i = 0; i < 8; i++) {
+
+    pushMatrix();
+    translate(width/2, 540);
+    rotate(radians(45*i));
+
+    // triangulo pequeño
+    fill(azul5);
+    triangle(izqX+30, izqY, supX, supY+80, derX-30, derY);
+    popMatrix();
+  }
+
+  for (int i = 0; i < 8; i++) {
+
+    pushMatrix();
+    translate(width/2, 540);
+    rotate(radians(45*i));
+
+    // triangulo grande
+    pushMatrix();
+    rotate(radians(22));
+    fill(azul4);
+    triangle(izqX+20, izqY, supX, supY+80, derX-20, derY);
+    popMatrix();
+    popMatrix();
+  }
+
+  fill(azul1);
+  ellipse(width/2, 540, 30, 30);
+}
+
 void ellipsesDobles() {
   fill(rosa);
   ellipse(0, 0, 460, 460);
 
+  // Centro de flor
   for (int i = 0; i < 8; i++) {
     pushMatrix();
     rotate(radians(45*i));
 
     pushMatrix();
-    rotate(radians(22));
+    rotate(radians(22.5));
+
+    // Petalos del centor rosa
     pushMatrix();
     translate(225, 0);
     fill(rosa);
     ellipse(0, 0, 91, 91);
     popMatrix();
+
+    // Centro doble petalos
+    pushMatrix();
+    translate(225, 0);
+    fill(azul1);
+    ellipse(0, 0, 60, 60);
+    fill(255);
+    ellipse(0, 0, 40, 40);
     popMatrix();
-    
+    // Pop Matrix que gira todo 22 grados
+    popMatrix();
+
+    // ellipse blanco que crea los petalos rosados
     pushMatrix();
     translate(225, 0);
     fill(255);
-    ellipse(0, 0, 91, 91);
+    ellipse(0, 0, 89, 89);
     popMatrix();
+
+    pushMatrix();
+    translate(130, 0);
+    fill(255);
+    ellipse(0, 0, 80, 80);
+    fill(azul2);
+    ellipse(0, 0, 60, 60);
+    fill(255);
+    ellipse(0, 0, 40, 40);
+    popMatrix();
+
     popMatrix();
   }
 }
@@ -207,7 +286,11 @@ void TripeTriangulo_tercerAnillo(float izqX, float izqY, float derX, float derY,
   popMatrix();
 }
 
-
+void keyPressed() {
+  if (key== 'r') {
+    saveFrame("captura_###.png"); //PNG es recomendado, pero se puede cambiar la extension a .jpg
+  }
+}
 /*
 37.5 --> 25 + (25/2)
  */
