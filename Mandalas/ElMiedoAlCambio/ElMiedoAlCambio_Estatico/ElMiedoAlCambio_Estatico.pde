@@ -23,8 +23,10 @@ void draw() {
   textAlign(CENTER);
   textSize(25);
   fill(azul1);
-  text("Llega un momento en el cual debemos preguntarnos si lo que hay", width/2, 1100);
-  text("en nuestras Vida es lo que queremos o lo que nos da miedo cambiar", width/2, 1140);
+  //text("Llega un momento en el cual debemos preguntarnos si lo que hay", width/2, 1100);
+  //text("en nuestras Vida es lo que queremos o lo que nos da miedo cambiar", width/2, 1140);
+  text("There comes a time when we musk ask ourselves if what is in our", width/2, 1100);
+  text("lives is what we want or what we are afraid to change", width/2, 1140);
 }
 
 //////////////////////////////////////    PRIMER ANILLO   //////////////////////////////////////////////////
