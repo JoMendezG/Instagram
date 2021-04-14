@@ -1,5 +1,5 @@
-float rp;
-float rn;
+float rp, rp2;
+float rn, rn2;
 void setup() {
   size(800, 800);
 }
@@ -7,13 +7,15 @@ void setup() {
 void draw() {
   background(0);
   colorMode(HSB, 360, 100, 100);
-  rp+=0.2;
-  rn-=0.2;
+  rp+=0.08;
+  rp2+=0.026;
+  rn-=0.05;
+  rn2-=0.02;
 
   for (int i = 0; i<18; i++) {
     pushMatrix();
     translate(width/2, height/2);
-    rotate(radians(rp));
+    rotate(radians(rp*i));
     rotate(radians(i*20));
     fill(i*20, 100, 100);
     mandalaPrimerAnillo(0, -70, 50);
@@ -23,7 +25,7 @@ void draw() {
   for (int i = 0; i<36; i++) {
     pushMatrix();
     translate(width/2, height/2);
-    rotate(radians(rn));
+    rotate(radians(rn*i));
     rotate(radians(i*10));
     fill(i*10, 100, 100);
     mandalaSegundoAnillo(0, 0, 50);
@@ -33,7 +35,7 @@ void draw() {
   for (int i = 0; i<54; i++) {
     pushMatrix();
     translate(width/2, height/2);
-    rotate(radians(rp));
+    rotate(radians(rp2*i));
     rotate(radians(i*6.667));
     fill(i*6.667, 100, 100);
     mandalaTercerAnillo(0, 80, 50);
@@ -43,7 +45,7 @@ void draw() {
   for (int i = 0; i<72; i++) {
     pushMatrix();
     translate(width/2, height/2);
-    rotate(radians(rn));
+    rotate(radians(rn2*i));
     rotate(radians(i*5));
     fill(i*5, 100, 100);
     mandalaCuartoAnillo(0, 165, 50);
