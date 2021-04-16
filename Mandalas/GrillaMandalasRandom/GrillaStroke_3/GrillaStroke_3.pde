@@ -3,40 +3,57 @@ float cantidad;
 //int [] tamano = new int[4];
 //int selectTam;
 
+int selectColor;
+color [] colores = new color [4];
+
 void setup() {
   size(800, 800);
   frameRate(2);
+
+  colorMode(HSB, 360, 100, 100);
 
   //tamano[0] = 25;
   //tamano[1] = 50;
   //tamano[2] = 75;
   //tamano[3] = 100;
+
+  colores[0] = color(343, 99, 99);
+  colores[1] = color(173, 100, 100);
+  colores[2] = color(216, 100, 100);
+  colores[3] = color(27, 100, 100);
 }
 
 void draw() {
   background(0);
   noFill();
-  stroke(255);
+
   for (int i = 0; i < 4; i++) {
     for (int j = 0; j < 4; j++) {
       cantidad = random(0, 12);
+      selectColor = (colores[(int)random(0, 4)]);
+      stroke(selectColor);
       //selectTam = (tamano[(int)random(0, 4)]);
       dibujos(i*200+100, j*200+100, 100);
-      
+
       cantidad = random(0, 12);
+      selectColor = (colores[(int)random(0, 4)]);
+      stroke(selectColor);
       //selectTam = (tamano[(int)random(0, 4)]);
       dibujos(i*200+100, j*200+100, 75);
-      
+
       cantidad = random(0, 12);
+      selectColor = (colores[(int)random(0, 4)]);
+      stroke(selectColor);
       //selectTam = (tamano[(int)random(0, 4)]);
       dibujos(i*200+100, j*200+100, 50);
-      
+
       cantidad = random(0, 12);
+      selectColor = (colores[(int)random(0, 4)]);
+      stroke(selectColor);
       //selectTam = (tamano[(int)random(0, 4)]);
       dibujos(i*200+100, j*200+100, 25);
     }
   }
-  
 }
 
 void dibujos (int posX, int posY, int tam) {
