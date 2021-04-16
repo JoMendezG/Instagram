@@ -1,16 +1,16 @@
 float cantidad;
 
-int [] tamano = new int[4];
-int selectTam;
+//int [] tamano = new int[4];
+//int selectTam;
 
 void setup() {
   size(800, 800);
   frameRate(2);
 
-  tamano[0] = 25;
-  tamano[1] = 50;
-  tamano[2] = 75;
-  tamano[3] = 100;
+  //tamano[0] = 25;
+  //tamano[1] = 50;
+  //tamano[2] = 75;
+  //tamano[3] = 100;
 }
 
 void draw() {
@@ -20,14 +20,20 @@ void draw() {
   for (int i = 0; i < 4; i++) {
     for (int j = 0; j < 4; j++) {
       cantidad = random(0, 12);
-      selectTam = (tamano[(int)random(0, 4)]);
-      dibujos(i*200+100, j*200+100, selectTam);
+      //selectTam = (tamano[(int)random(0, 4)]);
+      dibujos(i*200+100, j*200+100, 100);
+      
       cantidad = random(0, 12);
-      selectTam = (tamano[(int)random(0, 4)]);
-      dibujos(i*200+100, j*200+100, selectTam);
+      //selectTam = (tamano[(int)random(0, 4)]);
+      dibujos(i*200+100, j*200+100, 75);
+      
       cantidad = random(0, 12);
-      selectTam = (tamano[(int)random(0, 4)]);
-      dibujos(i*200+100, j*200+100, selectTam);
+      //selectTam = (tamano[(int)random(0, 4)]);
+      dibujos(i*200+100, j*200+100, 50);
+      
+      cantidad = random(0, 12);
+      //selectTam = (tamano[(int)random(0, 4)]);
+      dibujos(i*200+100, j*200+100, 25);
     }
   }
   
@@ -144,7 +150,7 @@ void dib9 (int posX, int posY, int tam) {
   for (int i = 0; i<4; i++) {
     //rectMode(CENTER);
     pushMatrix();
-    translate(posX, posY+10);
+    translate(posX, posY);
     rotate(radians(90*i+45));
     rect(-tam/16, tam/4, tam/8, tam/4);
     popMatrix();
