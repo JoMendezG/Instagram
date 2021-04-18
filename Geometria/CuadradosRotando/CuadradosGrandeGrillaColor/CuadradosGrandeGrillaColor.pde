@@ -1,8 +1,5 @@
-int Cantidad=6;
-
-color [] misColoress = new color [6];
-
-int elegirColor;
+int Cantidad=5;
+color [] misColoress = new color [5];
 color [][] misColores = new color [Cantidad] [Cantidad];
 
 
@@ -16,16 +13,16 @@ float rNeg;
 void setup() {
   size(800, 800);
   colorMode(HSB, 360, 100, 100);
-  misColoress[0] = color(327, 69, 95);
-  misColoress[1] = color(256, 52, 73);
-  misColoress[2] = color(174, 53, 79);
-  misColoress[3] = color(327, 69, 94);
-  misColoress[4] = color(256, 52, 74);
-  misColoress[5] = color(174, 53, 80);
+  misColoress[0] = color(351, 27, 100);
+  misColoress[1] = color(359, 17, 100);
+  misColoress[2] = color(323, 18, 80);
+  misColoress[3] = color(260, 16, 67);
+  misColoress[4] = color(210, 20, 80);
+
 
   for (int i=0; i<Cantidad; i++) {
     for (int j=0; j<Cantidad; j++) {
-      misColores[i][j] =(misColoress[(int)random(0, 6)]);
+      misColores[i][j] =(misColoress[(int)random(0, 5)]);
     }
   }
 }
@@ -37,26 +34,14 @@ void draw() {
   rPos+=0.001;
   rNeg-=0.001;
 
-  //lnDiagonal(tamPequeno*3, -tamPequeno);
-  //lnDiagonal(0, 0);
-  //lnDiagonal(-tamPequeno, tamPequeno*2);
-  //lnDiagonal(-tamPequeno*2, tamPequeno*4);
-  //lnDiagonal(-tamPequeno*3, tamPequeno*6);
-
   CuadradosEnLn();
-
-
-  //for (int i=0; i<5; i++) {
-  //  lnDiagonal(0, i*(tamGrande*2));
-  //}
-
-
-  //noLoop();
 }
 
 void cuadradosRotandoG(int posX, int posY, int tam) {
   for (int i = 0; i<10; i++) {
     stroke(0, 0, 100);
+    //strokeWeight(tam/200-(i*0.1));
+    strokeWeight(i*0.1);
     rectMode(CENTER);
     pushMatrix();
     translate(posX, posY);
@@ -68,6 +53,8 @@ void cuadradosRotandoG(int posX, int posY, int tam) {
 
 void cuadradosRotandoP(int posX, int posY, int tam) {
   for (int i = 0; i<10; i++) {
+    //strokeWeight(tam/100-(i*0.1));
+    strokeWeight(i*0.1);
     stroke(0, 0, 100);
     rectMode(CENTER);
     pushMatrix();
@@ -92,28 +79,30 @@ void CuadradosEnLn() {
       fill(misColores[i][j]);
       cuadradosRotandoG(i*tamGrande, i*tamPequeno+tamPequeno*3, tamGrande);
       popMatrix();
-    }
-  }
-}
 
-
-void lnDiagonal(int posX, int posY) {
-
-  pushMatrix();
-  translate(posX, posY);
-  for (int i = 0; i<6; i++) {
-    for (int j = 0; j<6; j++) {
-
-      //elegirColor = (misColores[(int)random(0, 3)]);
+      pushMatrix();
+      translate(0, j*tamPequeno*5);
       fill(misColores[i][j]);
-      cuadradosRotandoG(i*tamGrande+tamGrande/2, i*tamGrande/2+tamGrande/2, tamGrande);
+      cuadradosRotandoP(i*tamPequeno*2+tamPequeno/2, i*tamPequeno-tamPequeno/2, tamPequeno);
+      popMatrix();
 
-      //fill(elegirColor);
-      cuadradosRotandoP(i*tamGrande+tamGrande+tamGrande/4, i*tamPequeno+tamGrande/4, tamPequeno);
+      pushMatrix();
+      translate(0, j*tamPequeno*5);
+      fill(misColores[i][j]);
+      cuadradosRotandoP(i*tamPequeno*2+tamPequeno+tamPequeno/2, i*tamPequeno-(tamPequeno*2+tamPequeno/2), tamPequeno);
+      popMatrix();
     }
   }
-  popMatrix();
 }
 
-void colores() {
+void mousePressed() {
+  for (int i=0; i<Cantidad; i++) {
+    for (int j=0; j<Cantidad; j++) {
+      misColores[i][j] =(misColoress[(int)random(0, 5)]);
+    }
+  }
+}
+
+void keyPressed() {
+  saveFrame("####.png");
 }
