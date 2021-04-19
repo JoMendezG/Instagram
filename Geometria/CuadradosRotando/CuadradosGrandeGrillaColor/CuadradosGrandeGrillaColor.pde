@@ -39,9 +39,9 @@ void draw() {
 
 void cuadradosRotandoG(int posX, int posY, int tam) {
   for (int i = 0; i<10; i++) {
-    stroke(0, 0, 100);
+    stroke(211, 50, 57);
     //strokeWeight(tam/200-(i*0.1));
-    strokeWeight(i*0.1);
+    strokeWeight(i*0.2);
     rectMode(CENTER);
     pushMatrix();
     translate(posX, posY);
@@ -54,8 +54,8 @@ void cuadradosRotandoG(int posX, int posY, int tam) {
 void cuadradosRotandoP(int posX, int posY, int tam) {
   for (int i = 0; i<10; i++) {
     //strokeWeight(tam/100-(i*0.1));
-    strokeWeight(i*0.1);
-    stroke(0, 0, 100);
+    strokeWeight(i*0.2);
+    stroke(211, 50, 57);
     rectMode(CENTER);
     pushMatrix();
     translate(posX, posY);
