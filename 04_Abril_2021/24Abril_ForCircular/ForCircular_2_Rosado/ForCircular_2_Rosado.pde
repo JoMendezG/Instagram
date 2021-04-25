@@ -5,7 +5,7 @@ void setup() {
 
 void draw() {
   background(255);
-  
+
   for (int i=0; i<36; i++) {
     for (int j=4; j<18; j++) {
 
@@ -46,5 +46,11 @@ void draw() {
       ellipse(j*j*1.2, 0, j*2, j*2);
       popMatrix();
     }
+  }
+}
+
+void keyPressed() {
+  if (key=='1') {
+    saveFrame("####.png");
   }
 }
